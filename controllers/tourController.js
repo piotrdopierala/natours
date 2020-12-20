@@ -14,10 +14,18 @@ exports.getAllTours = async (req, res) => {
 
     //2) Sorting
     if (req.query.sort) {
-      const sortBy = req.query.sort.replace(',', ' ');
+      const sortBy = req.query.sort.split(',').join(' ');
       query = query.sort(sortBy);
     } else {
       query = query.sort('createdAt');
+    }
+
+    //3) Field limiting (projection)
+    if (req.query.fields) {
+      const fields = req.query.fields.split(',').join(' ');
+      query = query.select(fields);
+    } else {
+      query = query.select('-__v'); //mongoose internal field
     }
 
     //EXECUTE QUERY
