@@ -16,7 +16,8 @@
     "mongoose": "^5.11.7",
     "morgan": "^1.10.0",
     "slugify": "^1.4.6",
-    "sparse-bitfield": "^3.0.3"
+    "sparse-bitfield": "^3.0.3",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "eslint": "^7.15.0",
