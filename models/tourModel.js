@@ -9,8 +9,8 @@ const tourSchema = new mongoose.Schema(
       required: [true, 'A tour must have a name'],
       unique: true,
       trim: true,
-      maxlength: [40, 'A tour name must have less or euqual than 40 chacters.'],
-      minlength: [10, 'A tour name must have more or euqual than 10 chacters.'],
+      maxlength: [40, 'A tour name must have less or euqual than 40 chacters'],
+      minlength: [10, 'A tour name must have more or euqual than 10 chacters'],
       validate: {
         validator: function (val) {
           return validatorLib.isAlpha(val.split(' ').join(''), 'pl-PL');
@@ -47,7 +47,7 @@ const tourSchema = new mongoose.Schema(
           // 'this' only points to current doc on NEW document creation
           return val < this.price;
         },
-        message: 'Discount price ({VALUE}) should be below the regular price.',
+        message: 'Discount price ({VALUE}) should be below the regular price',
       },
     },
     summary: {
